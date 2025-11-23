@@ -86,7 +86,7 @@ function updateTable(schedule) {
         display = cellData.map(x => {
           const content = (x === null || x === undefined) ? "" : x.toString();
           return cellIndex === 2 ? `<span class="name-text">${content}</span>` : content;
-        }).join("<br>");
+        }).join(cellIndex === 2 ? "" : "<br>");
       } else {
         const content = (cellData === null || cellData === undefined) ? "" : cellData.toString();
         display = (cellIndex === 2 && rowIndex !== 0) ? `<span class="name-text">${content}</span>` : content;

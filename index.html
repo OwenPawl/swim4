@@ -218,12 +218,9 @@
       min-width: 0;
       overflow: hidden;
     }
-    .schedule-table td:nth-child(3) { line-height: 1.14; }
-    .schedule-table td:nth-child(3) br { line-height: 1.05; }
+    .schedule-table td:nth-child(3) { line-height: 1.18; }
 
-    .schedule-table {
-      table-layout: fixed;
-    }
+    .schedule-table { table-layout: auto; }
 
     .schedule-table th,
     .schedule-table td {
@@ -232,13 +229,13 @@
 
     .schedule-table th:nth-child(1),
     .schedule-table td:nth-child(1) {
-      width: clamp(64px, 12vw, 82px);
+      width: clamp(56px, 8vw, 72px);
       white-space: nowrap;
     }
 
     .schedule-table th:nth-child(2),
     .schedule-table td:nth-child(2) {
-      width: clamp(56px, 10vw, 74px);
+      width: clamp(52px, 7.5vw, 68px);
       white-space: nowrap;
     }
 
@@ -246,7 +243,7 @@
     .schedule-table td:nth-child(4),
     .schedule-table th:nth-child(5),
     .schedule-table td:nth-child(5) {
-      width: clamp(60px, 10vw, 74px);
+      width: clamp(52px, 8vw, 66px);
       white-space: nowrap;
     }
 
