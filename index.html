@@ -211,15 +211,15 @@
       text-overflow: ellipsis;
       word-break: normal;
     }
-    .data-table th:nth-child(3),
-    .data-table td:nth-child(3) {
+    .schedule-table th:nth-child(3),
+    .schedule-table td:nth-child(3) {
       max-width: min(340px, 54vw);
-      width: 50%;
+      width: auto;
       min-width: 0;
       overflow: hidden;
     }
-    .data-table td:nth-child(3) { line-height: 1.14; }
-    .data-table td:nth-child(3) br { line-height: 1.05; }
+    .schedule-table td:nth-child(3) { line-height: 1.14; }
+    .schedule-table td:nth-child(3) br { line-height: 1.05; }
 
     .schedule-table {
       table-layout: fixed;
@@ -232,13 +232,13 @@
 
     .schedule-table th:nth-child(1),
     .schedule-table td:nth-child(1) {
-      width: 74px;
+      width: clamp(64px, 12vw, 82px);
       white-space: nowrap;
     }
 
     .schedule-table th:nth-child(2),
     .schedule-table td:nth-child(2) {
-      width: 64px;
+      width: clamp(56px, 10vw, 74px);
       white-space: nowrap;
     }
 
@@ -246,7 +246,7 @@
     .schedule-table td:nth-child(4),
     .schedule-table th:nth-child(5),
     .schedule-table td:nth-child(5) {
-      width: 70px;
+      width: clamp(60px, 10vw, 74px);
       white-space: nowrap;
     }
 
@@ -395,8 +395,8 @@
       .action-stack { display: flex; gap: 10px; justify-content: flex-start; align-items: flex-start; }
       .checkin-stack { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; width: 100%; }
       .checkins-cell { position: sticky; right: 94px; background: linear-gradient(90deg, rgba(249,252,255,0.9), #f9fcff 50%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 108px; padding-right: 0; text-align: right; }
-    .notes-cell { position: sticky; right: 0; background: linear-gradient(90deg, rgba(249,252,255,0.92), #f9fcff 70%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 94px; padding-left: 0; text-align: right; }
-    .notes-btn { width: 92px; min-width: 92px; height: 44px; flex: 0 0 auto; margin-left: auto; }
+    .notes-cell { position: sticky; right: 0; background: linear-gradient(90deg, rgba(249,252,255,0.92), #f9fcff 70%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 96px; padding: 4px 2px 4px 0; text-align: right; }
+    .notes-btn { width: 90px; min-width: 90px; height: 44px; flex: 0 0 auto; margin-left: 0; }
 
     @media (max-width: 520px) {
       body { padding: 10px 6px; }
@@ -404,7 +404,7 @@
       .content-card { padding: 12px 10px calc(var(--nav-height) + 114px); }
       .table-wrapper { padding: 4px 4px 2px; }
       .data-table th, .data-table td { padding: 10px 6px; font-size: 14px; }
-      .data-table th:nth-child(3), .data-table td:nth-child(3) { width: 46%; max-width: 64vw; }
+      .schedule-table th:nth-child(3), .schedule-table td:nth-child(3) { width: auto; max-width: 64vw; }
       .checkIn { margin: 3px 0; }
       .checkin-stack { gap: 6px; }
       .checkins-cell { right: 96px; }
