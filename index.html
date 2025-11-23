@@ -222,21 +222,38 @@
     .data-table td:nth-child(3) br { line-height: 1.05; }
 
     .schedule-table {
-      table-layout: auto;
+      table-layout: fixed;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      overflow: hidden;
     }
 
     .schedule-table th:nth-child(1),
-    .schedule-table td:nth-child(1),
+    .schedule-table td:nth-child(1) {
+      width: 74px;
+      white-space: nowrap;
+    }
+
     .schedule-table th:nth-child(2),
     .schedule-table td:nth-child(2) {
-      width: 1%;
+      width: 64px;
+      white-space: nowrap;
+    }
+
+    .schedule-table th:nth-child(4),
+    .schedule-table td:nth-child(4),
+    .schedule-table th:nth-child(5),
+    .schedule-table td:nth-child(5) {
+      width: 70px;
       white-space: nowrap;
     }
 
     .schedule-table th:nth-child(3),
     .schedule-table td:nth-child(3) {
       min-width: 0;
-      max-width: 100%;
+      width: auto;
     }
 
     .text {
@@ -244,7 +261,8 @@
       color: var(--blue);
       line-height: 1.35;
       white-space: normal;
-      word-break: normal;
+      word-break: keep-all;
+      overflow-wrap: normal;
     }
 
     .checkIn {
@@ -376,8 +394,8 @@
 
       .action-stack { display: flex; gap: 10px; justify-content: flex-start; align-items: flex-start; }
       .checkin-stack { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; width: 100%; }
-      .checkins-cell { position: sticky; right: 96px; background: linear-gradient(90deg, rgba(249,252,255,0.9), #f9fcff 50%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 118px; padding-right: 4px; text-align: right; }
-    .notes-cell { position: sticky; right: 0; background: linear-gradient(90deg, rgba(249,252,255,0.92), #f9fcff 70%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 96px; padding-left: 4px; text-align: right; }
+      .checkins-cell { position: sticky; right: 94px; background: linear-gradient(90deg, rgba(249,252,255,0.9), #f9fcff 50%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 108px; padding-right: 0; text-align: right; }
+    .notes-cell { position: sticky; right: 0; background: linear-gradient(90deg, rgba(249,252,255,0.92), #f9fcff 70%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 94px; padding-left: 0; text-align: right; }
     .notes-btn { width: 92px; min-width: 92px; height: 44px; flex: 0 0 auto; margin-left: auto; }
 
     @media (max-width: 520px) {
