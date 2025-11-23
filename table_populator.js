@@ -45,8 +45,9 @@ function updateTable(schedule) {
     if (state == "late_canceled"||state=="canceled"){
       merged.push({ start, end: blockEnd, name: "CANCELED", level: "&#12644;", New: false, age: "&#12644;" });
     } else {
-      merged.push({ start, end: blockEnd, name: (s =>(w = s.trim().split(/\s+/),(w.length > 1 ? [w[0], w[w.length-1]] : [w[0]]).map(x => x[0].toUpperCase() + (/^[A-Z]+$/.test(x) ? x.slice(1).toLowerCase() : x.slice(1))).join(" ")))(name).concat((New)?'<span class="badge-new">NEW</span>':''), level, age });
-      
+      const formattedName = (s =>(w = s.trim().split(/\s+/),(w.length > 1 ? [w[0], w[w.length-1]] : [w[0]]).map(x => x[0].toUpperCase() + (/^[A-Z]+$/.test(x) ? x.slice(1).toLowerCase() : x.slice(1))).join(" ")))(name);
+      const nameWithBadge = New ? `<span class="badge-new">NEW</span> ${formattedName}` : formattedName;
+      merged.push({ start, end: blockEnd, name: nameWithBadge, level, age });
     }
     i = j;
   }
@@ -86,7 +87,7 @@ function updateTable(schedule) {
         display = cellData.map(x => {
           const content = (x === null || x === undefined) ? "" : x.toString();
           return cellIndex === 2 ? `<span class="name-text">${content}</span>` : content;
-        }).join("<br>");
+        }).join(cellIndex === 2 ? "" : "<br>");
       } else {
         const content = (cellData === null || cellData === undefined) ? "" : cellData.toString();
         display = (cellIndex === 2 && rowIndex !== 0) ? `<span class="name-text">${content}</span>` : content;

@@ -161,7 +161,6 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: inset 0 0 0 1px rgba(0, 123, 180, 0.05);
-      table-layout: fixed;
     }
 
     .data-table th,
@@ -204,49 +203,59 @@
 
     .name-text {
       display: block;
-      max-width: 100%;
+      width: 100%;
+      max-width: min(360px, 60vw);
       min-width: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      word-break: normal;
     }
-    .data-table th:nth-child(3),
-    .data-table td:nth-child(3) {
-      max-width: min(340px, 54vw);
-      width: 50%;
-      min-width: 0;
-      overflow: hidden;
-    }
-    .data-table td:nth-child(3) { line-height: 1.14; }
-    .data-table td:nth-child(3) br { line-height: 1.05; }
 
     .schedule-table {
       table-layout: auto;
+      width: 100%;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      overflow: hidden;
     }
 
     .schedule-table th:nth-child(1),
-    .schedule-table td:nth-child(1),
+    .schedule-table td:nth-child(1) {
+      width: clamp(56px, 8vw, 72px);
+      white-space: nowrap;
+    }
+
     .schedule-table th:nth-child(2),
     .schedule-table td:nth-child(2) {
-      width: 1%;
+      width: clamp(52px, 7.5vw, 68px);
+      white-space: nowrap;
+    }
+
+    .schedule-table th:nth-child(4),
+    .schedule-table td:nth-child(4),
+    .schedule-table th:nth-child(5),
+    .schedule-table td:nth-child(5) {
+      width: clamp(52px, 8vw, 66px);
       white-space: nowrap;
     }
 
     .schedule-table th:nth-child(3),
     .schedule-table td:nth-child(3) {
       min-width: 0;
-      max-width: 100%;
+      width: 100%;
+      max-width: min(360px, 60vw);
     }
 
     .text {
       font-weight: 800;
       color: var(--blue);
-      max-width: calc(100vw - 144px);
-      line-height: 1.3;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-break: normal;
+      line-height: 1.35;
+      white-space: normal;
+      word-break: keep-all;
+      overflow-wrap: normal;
     }
 
     .checkIn {
@@ -376,11 +385,11 @@
         box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04);
       }
 
-      .action-stack { display: flex; gap: 10px; justify-content: flex-end; align-items: flex-start; }
-      .checkin-stack { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
-      .checkins-cell { position: sticky; right: 104px; background: linear-gradient(90deg, rgba(249,252,255,0.9), #f9fcff 50%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 124px; padding-right: 6px; }
-    .notes-cell { position: sticky; right: 0; background: linear-gradient(90deg, rgba(249,252,255,0.92), #f9fcff 70%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 104px; padding-left: 6px; text-align: right; }
-    .notes-btn { width: 92px; min-width: 92px; height: 44px; flex: 0 0 auto; margin-left: auto; }
+      .action-stack { display: flex; gap: 10px; justify-content: flex-start; align-items: flex-start; }
+      .checkin-stack { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; width: 100%; }
+      .checkins-cell { position: sticky; right: 94px; background: linear-gradient(90deg, rgba(249,252,255,0.9), #f9fcff 50%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 108px; padding-right: 0; text-align: right; }
+    .notes-cell { position: sticky; right: 0; background: linear-gradient(90deg, rgba(249,252,255,0.92), #f9fcff 70%); box-shadow: -6px 0 10px rgba(0, 59, 92, 0.04); width: 96px; padding: 4px 2px 4px 0; text-align: right; }
+    .notes-btn { width: 90px; min-width: 90px; height: 44px; flex: 0 0 auto; margin-left: 0; }
 
     @media (max-width: 520px) {
       body { padding: 10px 6px; }
@@ -388,10 +397,10 @@
       .content-card { padding: 12px 10px calc(var(--nav-height) + 114px); }
       .table-wrapper { padding: 4px 4px 2px; }
       .data-table th, .data-table td { padding: 10px 6px; font-size: 14px; }
-      .data-table th:nth-child(3), .data-table td:nth-child(3) { width: 46%; max-width: 64vw; }
+      .schedule-table th:nth-child(3), .schedule-table td:nth-child(3) { width: auto; max-width: 64vw; }
       .checkIn { margin: 3px 0; }
       .checkin-stack { gap: 6px; }
-      .checkins-cell { right: 104px; }
+      .checkins-cell { right: 96px; }
       .floating-actions { width: calc(100% - 10px); bottom: calc(var(--nav-height) + 8px); gap: 8px; }
       .bottom-nav { width: 100%; border-radius: 16px 16px 0 0; }
     }
